@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+    </head>
+    <style>
+        .body{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: rgb(0, 0, 0);
+            flex-wrap: wrap;
+        }
+        .container{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-height: 1000px;
+            background: rgba(255, 255, 255, 0);
+            z-index: 1;
+            flex-wrap: wrap;
+        }
+        .container .card{
+            position: relative;
+            width: 480px;
+            height: 720px;
+            margin: 30px;
+            box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            border-left: 1px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+        }
+        .container .card .content{
+            padding: 20px;
+            text-align: center;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: 0.5s;
+        
+        }
+        .container .card:hover .content{
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        .container .card .content h2{
+           position: absolute;
+           top: 0px;
+           right: 30px;
+           font-size: 8em;
+           color: rgba(0, 0, 0, 0.5);
+           pointer-events: none; 
+        }
+        .container .card .content h3{
+           font-size: 3em;
+           font-family: 'Electrolize', sans-serif;
+           color: rgb(255, 255, 255);
+           z-index: 1;
+           pointer-events: none; 
+        }
+        .container .card .content p{
+           font-size: 1em;
+           font-family: 'Electrolize', sans-serif;
+           color: rgb(255, 255, 255);
+            font-weight: 300;
+        }
+        .container .card .content a{
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 30px;
+            background: #fff;
+            color: #000;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1em;
+            color: rgb(0, 0, 0);
+            z-index: 1;            
+            box-shadow:0 5px 15px rgba(0, 0, 0, 0.5) ;
+        }
+       .body .box{
+           position: fixed;
+           width: 700px;
+           height: 300px;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+          
+       }
+       .body .box h2{
+            color: #fff;
+            font-size: 6em;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-shadow: 0 0 10px #00b3ff,
+                         0 0 20px #00b3ff,
+                         0 0 40px #00b3ff,
+                         0 0 80px #00b3ff,
+                         0 0 100px #00b3ff;
+
+       }
+       .body .box .lightbar{
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 10px;
+           height: 100%;
+           border-radius: 10px;
+           background: #fff;
+           z-index: 2;
+           box-shadow: 0 0 10px #00b3ff,
+                         0 0 20px #00b3ff,
+                         0 0 40px #00b3ff,
+                         0 0 80px #00b3ff,
+                         0 0 100px #00b3ff;
+            animation: animatelightbar 5s linear infinite;
+       }
+       @keyframes animatelightbar
+       {
+           0%, 5%
+           {
+               transform: scaleY(0) translateX(0);
+           }
+           10%
+           {
+               transform: scaleY(1) translateX(0);
+           }
+           90%
+           {
+               transform: scaleY(1) translateX(calc(700px - 10px));
+           }
+           95%, 100%
+           {
+               transform: scaleY(0) translateX(calc(700px - 10px));
+           }
+       }
+       .body .box .TopLayer{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgb(0, 0, 0);
+        animation: animatetoplayer 10s linear infinite;
+    }
+    @keyframes animatetoplayer
+       {
+           0%, 2.5%
+           {
+               transform: translateX(0);
+           }
+           5%
+           {
+               transform: translateX(0);
+           }
+           45%
+           {
+               transform: translateX(100%);
+           }
+           47.5%, 50%
+           {
+               transform: translateX(100%);
+           }
+           50.001%, 52.5%
+           {
+               transform: translateX(-100%);
+           }
+           55%
+           {
+               transform: translateX(-100%);
+           }
+           95%
+           {
+               transform: translateX(0%);
+           }
+           97.5%, 100%
+           {
+               transform: translateX(0%);
+           }
+       }
+    </style>
+    
+    <body>
+    <div class="body">
+    <div class="box">
+        <div class="lightbar"></div>
+        <div class="TopLayer"></div>
+        <h2>Welcome!</h2>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="content">
+                <h2></h2>
+                <h3>Welcome!</h3>
+                <p>Hello, This is a Passcard for you.
+                  <br />Let's look inside the website that I have made.
+                  
+
+
+                </p>
+                <a href="home.html">Countine</a>
+            </div>
+        </div>
+    </div>
+        <script type="text/javascript" src="vanilla-tilt.js"></script>
+        <script type="text/javascript">VanillaTilt.init(document.querySelectorAll(".card"), {
+            max: 25,
+            speed: 400,
+            glare: true,
+            "max-glare": 1,
+          });	
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="{{url_for('static',filename='index.js')}}"></script>
+        </div>
+</body>
+
+</html>
